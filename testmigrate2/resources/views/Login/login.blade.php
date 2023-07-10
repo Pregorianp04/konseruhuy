@@ -11,12 +11,12 @@
 <body>
 
 
-    <!--- Registrasi/Sign up  Area -->
+    <!--- LOGIN  Area -->
 
     <div class="container" id="container">
 
 
-        <!-- LOGIN AREA -->
+
         <div class="form-container sign-in-container">
             <form action="" method="POST">
 
@@ -26,18 +26,15 @@
                 @if(session('success')=='Registrasi berhasil!')
                 <div class="alert alert-success"> Registrasi Berhasil!</div>
                 @endif
-                @if($errors->any())
 
-                <ul>
+                @if($errors->any())<ul>
                 @foreach ( $errors->all() as $items )
-
-                    <li>{{ $items }}</li>
-                    @endforeach
+                <li>{{ $items }}</li>
+                @endforeach
                 </ul>
+                @endif
 
-            @endif
 
-               
                 <span>or use your account</span>
                 <input name="email" value="{{ old('email') }}"for="email" type="email" placeholder="Email" />
                 <input name="password" for="password" type="password" placeholder="Password" />

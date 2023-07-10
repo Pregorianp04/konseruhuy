@@ -19,9 +19,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
 // Route::get('/simpankategori', [KategoriController::class, 'create']);
 
 // Route::get('/User', [UserController::class, 'index']);
@@ -36,29 +34,67 @@ Route::get('/', function () {
 //Catatan
 
 //Route Login jika sudah masuk home kembali lagi ke login harus ke log out
+// Route::middleware(['guest'])->group(function () {
+//     Route::get("/", [SessionController::class, 'index'])->name('login');
+//     Route::post("/", [SessionController::class, 'login']);
+
+// });
+
+//Route home
+// Route::get('/home', function () {
+//     return redirect('/');
+// });
+
+//ROUTE UNTUK PENGECEKAN LOGIN MASUK KE USER ATAU ADMIN
+// Route::middleware(['auth'])->group(function () {
+//     Route::get('/admin', [UserController::class, 'indexadmin'])->middleware('userAkses:admin');
+//     Route::get('/masyarakat', [UserController::class, 'masyarakat'])->middleware('userAkses:masyarakat');
+//     Route::get('/User/{id}', [UserController::class, 'detail']);
+//      Route::get('/logout', [SessionController::class, 'logout']);
+// });
+
+
+// Route::post('/register',[SignupController::class,'register']);
+// Route::get('/register',[SignupController::class,'form'])->name('Login.register');
+
+
+
 Route::middleware(['guest'])->group(function () {
     Route::get("/", [SessionController::class, 'index'])->name('login');
     Route::post("/", [SessionController::class, 'login']);
-
 });
 
 //Route home
-Route::get('/home', function () {
-    return redirect('/');
-});
-
-//ROUTE UNTUK PENGECEKAN LOGIN MASUK KE USER ATAU ADMIN
 Route::middleware(['auth'])->group(function () {
-    Route::get('/admin', [UserController::class, 'indexadmin'])->middleware('userAkses:admin');
-    Route::get('/masyarakat', [UserController::class, 'masyarakat'])->middleware('userAkses:masyarakat');
-    Route::get('/User/{id}', [UserController::class, 'detail']);
-     Route::get('/logout', [SessionController::class, 'logout']);
-});
+    Route::get('/home', function () {
+        return redirect('/');
+    });
 
+
+    Route::middleware('userAkses:masyarakat')->group(function () {
+
+        Route::get('/masyarakat', [UserController::class, 'masyarakat']);
+        Route::get('/User/{id}', [UserController::class, 'detail']);
+    });
+
+    Route::middleware('userAkses:admin')->group(function () {
+
+        Route::get('/admin', [UserController::class, 'indexadmin']);
+        Route::get('/User/{id}', [UserController::class, 'detail']);
+    });
+
+    Route::get('/logout', [SessionController::class, 'logout']);
+});
 
 Route::post('/register',[SignupController::class,'register']);
 Route::get('/register',[SignupController::class,'form'])->name('Login.register');
 
-// Route::get('/register',function(){
-//     return view('Login.register');
-// });
+
+Route::get('adminbre',function(){
+    return view('admin.dashboard');
+});
+
+Route::get('/landing',function(){
+    return view('user.navbar');
+});
+
