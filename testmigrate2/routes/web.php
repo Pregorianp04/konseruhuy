@@ -22,6 +22,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+
+
 Route::get('/simpankategori', [KategoriController::class, 'create']);
 
 Route::get('/User', [UserController::class, 'index']);
