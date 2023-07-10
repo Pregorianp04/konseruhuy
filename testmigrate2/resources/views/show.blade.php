@@ -2,7 +2,7 @@
 
 @section('konten')
     <div>
-        <a href="/User" class="btn btn-secondary">kembali</a>
+        <a href="/admin" class="btn btn-secondary">kembali</a>
         <h1> {{ $data->name }}</h1>
         <p>
 

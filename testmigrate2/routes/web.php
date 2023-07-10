@@ -22,16 +22,16 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('/simpankategori', [KategoriController::class, 'create']);
+// Route::get('/simpankategori', [KategoriController::class, 'create']);
 
-Route::get('/User', [UserController::class, 'index']);
+// Route::get('/User', [UserController::class, 'index']);
 
-Route::get('/login', [Controller::class, 'index']);
+// Route::get('/login', [Controller::class, 'index']);
 
-Route::get('/User/{id}', [UserController::class, 'detail']);
+// Route::get('/User/{id}', [UserController::class, 'detail']);
 
-Route::get("/", [SessionController::class, 'index']);
-Route::post("/", [SessionController::class, 'login']);
+// Route::get("/", [SessionController::class, 'index']);
+// Route::post("/", [SessionController::class, 'login']);
 
 //Catatan
 
@@ -51,13 +51,14 @@ Route::get('/home', function () {
 Route::middleware(['auth'])->group(function () {
     Route::get('/admin', [UserController::class, 'indexadmin'])->middleware('userAkses:admin');
     Route::get('/masyarakat', [UserController::class, 'masyarakat'])->middleware('userAkses:masyarakat');
+    Route::get('/User/{id}', [UserController::class, 'detail']);
      Route::get('/logout', [SessionController::class, 'logout']);
 });
 
 
-Route::get('/register',[SignupController::class,'register']);
-Route::post('/register',[SignupController::class,'form']);
+Route::post('/register',[SignupController::class,'register']);
+Route::get('/register',[SignupController::class,'form'])->name('Login.register');
 
-Route::get('/register',function(){
-    return view('Login.register');
-});
+// Route::get('/register',function(){
+//     return view('Login.register');
+// });
