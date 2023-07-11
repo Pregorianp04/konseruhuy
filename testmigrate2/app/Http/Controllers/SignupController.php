@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 class SignupController extends Controller
 {
     public function form(){
-        return view('Login.login');
+        return view('Login.register');
     }
 
     public function register(Request $request)
@@ -16,7 +16,7 @@ class SignupController extends Controller
         $request->validate([
             'name' => 'required',
             'email' => 'required|email|unique:users',
-            'password' => 'required|min:8',
+            'password' => 'required|min:3',
         ]);
 
         $name = $request->input('name');
@@ -35,6 +35,6 @@ class SignupController extends Controller
             'role' => $role,
         ]);
 
-        return redirect()->route('/')->with('success', 'Registrasi berhasil!');
+        return redirect()->route('login')->with('success', 'Registrasi berhasil!');
     }
 }

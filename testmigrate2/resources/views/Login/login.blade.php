@@ -11,35 +11,12 @@
 <body>
 
 
-    <!--- Registrasi/Sign up  Area -->
+    <!--- LOGIN  Area -->
 
     <div class="container" id="container">
-        <div class="form-container sign-up-container">
-            <form action="#" method="POST">
-                @csrf
-                <h1>Create Account</h1>
 
 
-                <span>or use your email for registration</span>
-                <input name="name" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" type="text" placeholder="Name" />
-                @error('name')
-                <div class="invalid-feedback">{{ $message }}</div>
-                @enderror
 
-                <input name="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" type="email" placeholder="Email" />
-                @error('email')
-                <div class="invalid-feedback">{{ $message }}</div>
-                @enderror
-
-                <input name="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" type="password" placeholder="Password" />
-                @error('password')
-                <div class="invalid-feedback">{{ $message }}</div>
-                @enderror
-                <button>Sign Up</button>
-            </form>
-        </div>
-
-        <!-- LOGIN AREA -->
         <div class="form-container sign-in-container">
             <form action="" method="POST">
 
@@ -49,22 +26,15 @@
                 @if(session('success')=='Registrasi berhasil!')
                 <div class="alert alert-success"> Registrasi Berhasil!</div>
                 @endif
-                @if($errors->any())
 
-                <ul>
+                @if($errors->any())<ul>
                 @foreach ( $errors->all() as $items )
-
-                    <li>{{ $items }}</li>
-                    @endforeach
+                <li>{{ $items }}</li>
+                @endforeach
                 </ul>
+                @endif
 
-            @endif
 
-                {{-- <div class="social-container">
-                    <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
-                    <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
-                </div> --}}
                 <span>or use your account</span>
                 <input name="email" value="{{ old('email') }}"for="email" type="email" placeholder="Email" />
                 <input name="password" for="password" type="password" placeholder="Password" />
@@ -76,15 +46,11 @@
         <!-- Area Perpindahan Sgn Up Sign IN-->
         <div class="overlay-container">
             <div class="overlay">
-                <div class="overlay-panel overlay-left">
-                    <h1>Welcome Back!</h1>
-                    <p>To keep connected with us please login with your personal info</p>
-                    <button class="ghost" id="signIn">Sign In</button>
-                </div>
+
                 <div class="overlay-panel overlay-right">
                     <h1>Hello, Friend!</h1>
                     <p>Enter your personal details and start journey with us</p>
-                    <button class="ghost" id="signUp">Sign Up</button>
+                    <button class="ghost"><a href="{{ route('Login.register') }} ">Sign Up</a></button>
                 </div>
             </div>
         </div>
