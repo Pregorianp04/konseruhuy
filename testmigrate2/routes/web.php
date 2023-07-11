@@ -6,6 +6,7 @@ use App\Http\Controllers\KategoriController;
 use App\Http\Controllers\SessionController;
 use App\Http\Controllers\SignupController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\EventController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -57,10 +58,14 @@ Route::middleware(['auth'])->group(function () {
      Route::get('/logout', [SessionController::class, 'logout']);
 });
 
-
 Route::get('/register',[SignupController::class,'register']);
 Route::post('/register',[SignupController::class,'form']);
 
 Route::get('/register',function(){
     return view('Login.register');
 });
+
+Route::resource("/event", EventController::class);
+
+
+
