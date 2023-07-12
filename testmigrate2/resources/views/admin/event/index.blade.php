@@ -3,7 +3,7 @@
 
 @section('content')
     <h1>Event List</h1>
-    <a href="{{ url('/event/create') }}" class="btn btn-primary">Create Event</a>
+    <a href="{{ route('events.create') }}" class="btn btn-primary">Create Event</a>
     <br><br>
     @if (session('success'))
         <div class="alert alert-success">

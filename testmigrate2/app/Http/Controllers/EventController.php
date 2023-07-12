@@ -15,7 +15,7 @@ class EventController extends Controller
     public function index()
     {
         $event = Event::all();
-        return view('admin.event.index')->with('event', $event);;
+        return view('admin.event.index')->with('events', $event);;
     }
 
     /**
@@ -33,7 +33,7 @@ class EventController extends Controller
     {
         $input = $request->all();
         Event::create($input);
-        return redirect('event')->with('flash_message', 'Success Input!');  
+        return redirect('events')->with('flash_message', 'Success Input!');  
     }
 
     /**
