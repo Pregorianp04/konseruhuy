@@ -6,16 +6,19 @@ use App\Models\Event;
 use App\Http\Requests\StoreEventRequest;
 use App\Http\Requests\UpdateEventRequest;
 use Illuminate\View\View;
+use Illuminate\Http\Request;
 
 class EventController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
+
+
     public function index()
     {
-        $event = Event::all();
-        return view('admin.event.index')->with('event', $event);;
+        $events = Event::all();
+        return view('admin.event.index')->with('events', $events);;
     }
 
     /**
@@ -29,19 +32,33 @@ class EventController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreEventRequest $request)
+    public function store( Request $request)
     {
-        $input = $request->all();
-        Event::create($input);
-        return redirect('event')->with('flash_message', 'Success Input!');  
+        // $input = $request->all();
+        // Event::create($input);
+        // return redirect()->with('flash_message', 'Success Input!');
+
+        Event::create(
+            [
+                'nama_event'=> $request->nama_event,
+                'gambar_event'=>$request->gambar_event,
+                'tgl_event'=>$request->tgl_event,
+                'deskripsi_event'=>$request->deskripsi_event,
+                'lokasi_event'=>$request->lokasi_event,
+                'kuota_event'=>$request->kuota_event,
+            ]);
+            return redirect()->route('events.index')->with('success','Success Input!');
     }
+
+
 
     /**
      * Display the specified resource.
      */
-    public function show(Event $id)
+    public function show( $id)
     {
-        
+        $data=Event::where('id_event',$id)->first();
+        return view('admin.event.show')->with('data',$data);
     }
 
     /**
@@ -78,6 +95,7 @@ class EventController extends Controller
 
     /**
      * Remove the specified resource from storage.
+     * DELETE
      */
     public function destroy(Event $id)
     {

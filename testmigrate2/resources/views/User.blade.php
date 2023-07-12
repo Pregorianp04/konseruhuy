@@ -32,7 +32,7 @@
                 <td>{{ $item->email }}</td>
                 <td>{{ $item->role }}</td>
                 <td>{{ $item->password }}</td>
-                <td><a class="btn btn-secondary btn-sm" href="{{ url('/User/'.$item->id) }}">Detail</a></td>
+                <td><a class="btn btn-secondary btn-sm" href="{{ route('admin.detail',$item->id) }}">Detail</a></td>
             </tr>
             @endforeach
         </tbody>

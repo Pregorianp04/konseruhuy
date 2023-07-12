@@ -29,11 +29,13 @@ class UserController extends Controller
 
 public function masyarakat(){
 
-    echo "Halo selamat datang Masyarakkat";
-    echo "<h1>". Auth::user()->name."</h1>";
-    echo "<a href='/logout'> Logout </a>";
-    $data = User::all();
-    return view('User')->with('data', $data);
+    // echo "Halo selamat datang Masyarakkat";
+    // echo "<h1>". Auth::user()->name."</h1>";
+    // echo "<a href='/logout'> Logout </a>";
+    // $data = User::all();
+    // return view('User')->with('data', $data);
+
+    return view('user.Landingpage');
 
 }
 }

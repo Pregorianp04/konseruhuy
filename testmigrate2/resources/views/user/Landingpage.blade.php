@@ -28,8 +28,9 @@ body {font-family: "Lato", sans-serif}
         <a href="#" class="w3-bar-item w3-button">Merchandise</a>
         <a href="#" class="w3-bar-item w3-button">Extras</a>
         <a href="#" class="w3-bar-item w3-button">Media</a>
-      </div>
+         </div>
     </div>
+    <a href='/logout' class="w3-bar-item w3-button">LOGOUT</a>
     <a href="javascript:void(0)" class="w3-padding-large w3-hover-red w3-hide-small w3-right"><i class="fa fa-search"></i></a>
   </div>
 </div>

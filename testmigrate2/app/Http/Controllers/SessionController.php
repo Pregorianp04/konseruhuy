@@ -18,10 +18,8 @@ class SessionController extends Controller
         ],
     [
         'email.required'=>'Email wajib diisi',
-        'password.required'=>'Password wajibi diisi'
+        'password.required'=>'Password wajib diisi'
     ]);
-
-
 
 
     $infologin = [
