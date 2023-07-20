@@ -60,8 +60,8 @@
             <div class="overlay">
 
                 <div class="overlay-panel overlay-right">
-                    <h1>Welcome Back!</h1>
-                    <p>To keep connected with us please login with your personal info</p>
+                    <h1>Selamat datang kembali! </h1>
+                    <p>Silakan masuk ke akun Anda</p>
                     <button class="ghost" > <a href="{{ route('login') }}">Sign In</a></button>
                 </div>
             </div>

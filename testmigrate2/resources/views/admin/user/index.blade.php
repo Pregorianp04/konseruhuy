@@ -1,18 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-    <link href="css/user.css" rel="stylesheet"/>
-</head>
-<body>
-    @extends('aplikasi')
+@include('admin.menu')
 
-@section('konten')
-
-
+<main>
+    <h1>User List</h1>
     <table class="table">
         <thead>
             <tr>
@@ -21,7 +10,7 @@
                 <th>Username</th>
                 <th>Role</th>
                 <th>Password</th>
-                <th> Aksi </th>
+              
             </tr>
         </thead>
         <tbody>
@@ -32,13 +21,11 @@
                 <td>{{ $item->email }}</td>
                 <td>{{ $item->role }}</td>
                 <td>{{ $item->password }}</td>
-                <td><a class="btn btn-secondary btn-sm" href="{{ route('admin.detail',$item->id) }}">Detail</a></td>
+                {{-- <td><a class="btn btn-secondary btn-sm" href="{{ route('admin.detail',$item->id) }}">Detail</a></td> --}}
             </tr>
             @endforeach
         </tbody>
     </table>
+</main>
 
-    {{-- {{ $data->links() }} --}}
-@endsection
-</body>
-</html>
+

@@ -8,5 +8,5 @@
     <b>tgl event: </b> {{ $data->tgl_event }}<br>
     <b>Deskripsi : </b> {{ $data->deskripsi_event }}<br>
     <b>Lokasi  </b> {{ $data->lokasi_event }}<br>
-    <b>Kuota  </b> {{ $data->kuota_event }}
+    
 @endsection

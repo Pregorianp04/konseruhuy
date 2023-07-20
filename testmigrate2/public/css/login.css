@@ -37,7 +37,7 @@ span {
 }
 
 a {
-	color: #333;
+	color: #fff;
 	font-size: 14px;
 	text-decoration: none;
 	margin: 15px 0;
@@ -45,8 +45,8 @@ a {
 
 button {
 	border-radius: 20px;
-	border: 1px solid #FF4B2B;
-	background-color: #FF4B2B;
+	border: 1px solid #fff;
+	background-color: #0099e6;
 	color: #FFFFFF;
 	font-size: 12px;
 	font-weight: bold;
@@ -159,9 +159,9 @@ input {
 }
 
 .overlay {
-	background: #FF416C;
-	background: -webkit-linear-gradient(to right, #FF4B2B, #FF416C);
-	background: linear-gradient(to right, #FF4B2B, #FF416C);
+	background: #004;
+	background: -webkit-linear-gradient(to right, #fff, #0099e6);
+	background: linear-gradient(to right, #fff, #0099e6);
 	background-repeat: no-repeat;
 	background-size: cover;
 	background-position: 0 0;
@@ -237,6 +237,7 @@ footer {
     z-index: 999;
 }
 
+
 footer p {
     margin: 10px 0;
 }
@@ -246,6 +247,6 @@ footer i {
 }
 
 footer a {
-    color: #3c97bf;
+    color: #0099e6;
     text-decoration: none;
 }

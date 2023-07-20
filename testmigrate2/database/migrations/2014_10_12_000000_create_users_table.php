@@ -17,6 +17,9 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->enum('role',['masyarakat','admin'])->default('masyarakat');
             $table->timestamp('email_verified_at')->nullable();
+            $table->string('gambar_user')->default('gambarUser/user.png')->nullable();
+             $table->string('no_ktp',20)->nullable();
+            $table->string('no_telp',30)->nullable();
             $table->string('password');
             $table->rememberToken();
             $table->timestamps();

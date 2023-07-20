@@ -48,8 +48,8 @@
             <div class="overlay">
 
                 <div class="overlay-panel overlay-right">
-                    <h1>Hello, Friend!</h1>
-                    <p>Enter your personal details and start journey with us</p>
+                    <h1>Bergabunglah dengan kami!</h1>
+                    <p>Daftar dan nikmati fitur lengkap aplikasi kami.</p>
                     <button class="ghost"><a href="{{ route('Login.register') }} ">Sign Up</a></button>
                 </div>
             </div>

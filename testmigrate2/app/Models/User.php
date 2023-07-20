@@ -23,7 +23,10 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
-        'role'
+        'gambar_user',
+        'role',
+        'no_telp',
+        'no_ktp',
     ];
 
     /**
@@ -36,6 +39,7 @@ class User extends Authenticatable
         'remember_token',
     ];
 
+
     /**
      * The attributes that should be cast.
      *
@@ -45,4 +49,9 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+
+    public function pemesanan()
+    {
+        return $this->hasMany(Pemesanan::class, 'id_user');
+    }
 }

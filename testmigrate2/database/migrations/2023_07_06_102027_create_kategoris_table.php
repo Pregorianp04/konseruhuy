@@ -12,16 +12,20 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('kategoris', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
+            $table->id('id_kategori');
+           $table->string('nama_kategori',100);
+           $table->timestamps();
+
+
+
         });
     }
-
     /**
      * Reverse the migrations.
      */
     public function down(): void
     {
+
         Schema::dropIfExists('kategoris');
     }
 };
